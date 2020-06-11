@@ -36,19 +36,17 @@ If you need to update `npm`, you can make it using `npm`! Cool right? After runn
     $ npm install npm -g
 
 ###
+## Configuration
+
+The application uses dotenv and has a single .env file with the PORT setting.
+To change the port value, modify the .env file
+
+
 ## Install
 
     $ git clone https://github.com/jpretorius767/room-challenge.git
     $ cd PROJECT_TITLE
     $ npm install
-
-## Configure app
-
-Open `a/nice/path/to/a.file` then edit it with your settings. You will need:
-
-- A setting;
-- Another setting;
-- One more setting;
 
 ## Running the project
 

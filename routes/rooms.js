@@ -1,8 +1,8 @@
 'use strict';
 
 const { v4: uuidv4 } = require('uuid');
-const express = require('express');
-let router = express.Router();
+const express        = require('express');
+let router           = express.Router();
 
 /*
    Mock data to be used in application
@@ -43,7 +43,6 @@ router.post('/', (req, res) => {
 
 // GET room
 router.get('/:roomid', (req, res) => {
-  console.log(req.params.roomid);
   let foundRoom = rooms.find(r => r.roomid === req.params.roomid);
   if (!foundRoom) {
     return res.sendStatus(404);
@@ -77,7 +76,6 @@ router.put('/:roomid/join', (req, res) => {
   if (!room) return res.sendStatus(404);
   if (room) {
     if (room.participants.length >= room.capacity) {
-      // return res.send(500).json({ error: `Maximum capacity reached for room ${roomid}` });
       return res.status(500).send({ error: `Maximum capacity reached for room: ${roomid}` })
     }
     if (!room.participants.find(p => p === username)) {
@@ -110,16 +108,5 @@ router.get('/search/:username', (req, res) => {
   let foundRooms = rooms.filter(r => r.participants.includes(req.params.username));
   res.send({ rooms: foundRooms });
 }); 
-
-// DELETE a room
-// router.delete('/:roomid', (req, res) => {
-//   const idx = rooms.findIndex(u => u.roomid === req.params.roomid);
-//   if (idx > -1) {
-//     rooms.splice(idx, 1);
-//     return res.sendStatus(200);
-//   }
-//   res.sendStatus(404);
-// });
-  
 
 module.exports = router;

@@ -1,9 +1,19 @@
 'use strict';
-const express = require('express');
-let router = express.Router();
+const express   = require('express');
+let router      = express.Router();
 const basicAuth = require('../middleware/auth');
 
-const users = [{ username: 'test', password: 'test', mobile_token: 'abcdef'}, { username: 'abc', password: 'test1', mobile_token: 'qwerty'} ];
+const users = [
+  { username: 'test', 
+    password: 'test', 
+    mobile_token: 'abcdef'
+  }, 
+  {
+   username: 'abc', 
+   password: 'test1', 
+   mobile_token: 'qwerty'
+  }
+ ];
 
 /*
   For real-world scenarios passwords should be hashed/encrypted in some manner and not in plain text
@@ -17,7 +27,6 @@ router.get('/:username', (req, res) => {
 
 router.post('/authenticate', (req, res) => {
   const { username, password } = req.body;
-  // if (!username || !password) return res.sendStatus(401);
   const user = users.find(u => u.username === username && u.password === password);
   if (!user) return res.sendStatus(401);
   res.sendStatus(204);
