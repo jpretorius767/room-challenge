@@ -45,7 +45,7 @@ To change the port value, modify the .env file
 ## Install
 
     $ git clone https://github.com/jpretorius767/room-challenge.git
-    $ cd PROJECT_TITLE
+    $ cd room-challenge
     $ npm install
 
 ## Running the project
