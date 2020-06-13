@@ -1,6 +1,22 @@
 # Room Challenge
 
-This is an assessment project which is purely an API-based application
+This is an assessment project which is purely an API-based application.
+
+Assumptions:
+
+1. The mobile_token is used as an authentication token in conjuction with a header called x-access-token
+2. 'signed in as a user' and 'signed in as a user' are assumed to be the same
+3. The mobile_token is used as a JWT in this assessment but no actual verification occurs on the JWT for the moment just uses the password as the secret to encode the JWT
+4. No expiration of JWT
+5. No logout routes added
+
+
+What is not included:
+
+1. Unit Tests
+2. Persistence does not exist and this has affected the structure of the application
+3. Splitting of the routes into separate files could have been done
+4. Hashing of passwords upon retrieval from some routes
 
 ---
 ## Requirements
